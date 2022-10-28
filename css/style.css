@@ -1,0 +1,190 @@
+* {
+    font-family: 'Lexend', sans-serif;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    background-color: #9CCFE7;
+    border: 1px dashed #977FD7;
+}
+.container:first-of-type {
+    border-bottom: none;
+}
+.container:nth-of-type(2) {
+    border-top: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.icon-grid {
+/* flex! */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.show {
+/* visibilità e opacità */
+    visibility: visible;
+    opacity: 1;
+}
+
+#griglia>div {
+    /* dimensioni e margini */
+    width: 125px;
+    height: 125px;
+    margin: 20px 10px;
+
+    background-color: #FFFFC2;
+    border: 1px solid #f5a9cb;
+    border-radius: 10px;
+}
+
+.icon {
+    font-size: 80px;
+    text-align: center;
+    visibility: visible !important;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.timer {
+    padding: 10px 0;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: wait;
+}
+
+.show {
+    /* agganciare animation-name rotazione carta */
+    animation-name: rotazione-carta;
+
+    animation-duration: .5s;
+    background-color: white;
+    border: 1px solid #f5a9cb;
+    border-radius: 10px;
+
+    visibility: visible;
+    opacity: 1;
+}
+
+.find {
+    /* agganciare animation-name indovinato */
+    animation-name: indovinato;
+
+    animation-duration: .5s;
+    background-color: #f5a9cb8f;
+    border: 1px solid #f5a9cb;
+    border-radius: 10px;
+}
+
+.button {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    padding: 10px;
+    background-color: #977FD7;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px #ffffc2;
+}
+
+.button:hover {
+    background-color: #f5a9cb;
+}
+
+.button:active {
+    box-shadow: 0px 0px #ffffc2;
+    margin-top: 12px;
+    margin-left: 2px;
+    margin-bottom: 0;
+}
+
+#modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#modal.active {
+    display: flex;
+}
+
+#modal h2 {
+    margin-top: 20px;
+}
+
+
+
+/* MEDIA QUERY */
+
+@media (max-width: 600px) {
+    .container {
+        width: 400px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 70px;
+        height: 70px;
+    }
+    .icon {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 230px;
+    }
+    #griglia>div {
+        margin: 5px 5px;
+        width: 40px;
+        height: 40px;
+    }
+    .icon {
+        font-size: 20px;
+    }
+}
+
+
+
+/* ANIMAZIONI */
+
+@keyframes indovinato { /* animazione quando si indovina */
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotazione-carta { /* animazione quando ruota la carta */
+    from {
+        transform: perspective(300px) rotate3d(0, 1, 0, 80deg);
+        animation-timing-function: ease-in;
+    }
+    50% {
+        transform: perspective(300px) rotate3d(0, 1, 0, -10deg);
+        animation-timing-function: ease-in;
+    }
+    to {
+        transform: perspective(300px);
+        animation-timing-function: ease-in;
+    }
+}
