@@ -2,6 +2,10 @@
     font-family: 'Lexend', sans-serif;
 }
 
+body {
+    background-image: url("https://64.media.tumblr.com/1943d05a7bd8e075f4ef65fc5aaa59c2/tumblr_movcawwYsM1ru3nbdo3_250.png");
+}
+
 .container {
     width: 900px;
     margin: auto;
@@ -39,8 +43,12 @@
     margin: 20px 10px;
 
     background-color: #FFFFC2;
-    border: 1px solid #f5a9cb;
+    border: 1px dashed #f5a9cb;
     border-radius: 10px;
+
+    position: relative;
+
+    background-image: url("../images/strawberries-transparent.png");
 }
 
 .icon {
@@ -51,6 +59,10 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
+
+    position: absolute;
+    left: -1px;
+    top: -1px;
 }
 
 .timer {
@@ -78,9 +90,10 @@
 .find {
     /* agganciare animation-name indovinato */
     animation-name: indovinato;
+    animation-timing-function: ease;
 
-    animation-duration: .5s;
-    background-color: #f5a9cb8f;
+    animation-duration: 1s;
+    background-color: #F9CFC7;
     border: 1px solid #f5a9cb;
     border-radius: 10px;
 }
@@ -168,9 +181,11 @@
 @keyframes indovinato { /* animazione quando si indovina */
     from {
         transform: rotate(0deg);
+        background-color: #f5a9cb8f;
     }
     to {
         transform: rotate(360deg);
+        background-color: #f5a9cb8f;
     }
 }
 
