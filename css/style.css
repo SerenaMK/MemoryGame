@@ -49,6 +49,7 @@ body {
     position: relative;
 
     background-image: url("../images/strawberries-transparent.png");
+    background-size: 150px;
 }
 
 .icon {
